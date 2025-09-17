@@ -10,18 +10,47 @@
       margin: 0;
       padding: 0;
       background: #f4f4f9;
+      color: #333;
     }
+
+    /* ====== HEADER ====== */
     header {
-      background: #333;
+      background: #222;
       color: white;
-      padding: 1rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    /* ====== SECCIONES ====== */
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .intro h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* ====== PRODUCTOS ====== */
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 20px;
     }
     .card {
       background: white;
@@ -29,10 +58,24 @@
       padding: 15px;
       box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
     }
     .card img {
       max-width: 100%;
       border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin: 10px 0;
+      font-size: 1.3rem;
+    }
+    .price {
+      font-weight: bold;
+      margin: 10px 0;
+      color: #28a745;
     }
     .btn {
       display: inline-block;
@@ -42,41 +85,73 @@
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      transition: background 0.2s;
     }
     .btn:hover {
       background: #218838;
     }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 40px;
+    }
+    footer p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
+  <!-- ENCABEZADO -->
   <header>
     <h1>Bienvenido a Mi Tienda</h1>
+    <p>Productos de calidad a los mejores precios</p>
   </header>
 
-  <section class="container">
-    <!-- Producto 1 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="Producto 1">
-      <h2>Producto 1</h2>
-      <p>$150 MXN</p>
-      <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
-    </div>
+  <!-- INTRO -->
+  <section class="intro">
+    <h2>Nuestros Productos</h2>
+    <p>Encuentra lo que necesitas al mejor precio. Compra fácil y seguro.</p>
+  </section>
 
-    <!-- Producto 2 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="Producto 2">
-      <h2>Producto 2</h2>
-      <p>$200 MXN</p>
-      <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
-    </div>
+  <!-- PRODUCTOS -->
+  <section>
+    <div class="container">
+      <!-- Producto 1 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/250" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p class="price">$150 MXN</p>
+        <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      </div>
 
-    <!-- Producto 3 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="Producto 3">
-      <h2>Producto 3</h2>
-      <p>$300 MXN</p>
-      <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      <!-- Producto 2 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/250" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p class="price">$200 MXN</p>
+        <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/250" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p class="price">$300 MXN</p>
+        <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Mi Tienda. Todos los derechos reservados.</p>
+    <p>Hecho con ❤️ en México</p>
+  </footer>
 </body>
 </html>
