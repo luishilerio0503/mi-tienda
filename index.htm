@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Tienda</title>
   <style>
-    /* ====== ESTILOS GENERALES ====== */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -13,17 +12,6 @@
       background: #f8f9fc;
       color: #333;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    h1, h2, h3 {
-      margin: 0.5rem 0;
-    }
-
-    /* ====== HEADER ====== */
     header {
       background: #2c3e50;
       color: white;
@@ -44,13 +32,11 @@
       margin-left: 20px;
       font-weight: 500;
       color: white;
-      transition: color 0.3s;
+      text-decoration: none;
     }
     header nav a:hover {
       color: #1abc9c;
     }
-
-    /* ====== HERO ====== */
     .hero {
       background: linear-gradient(rgba(44,62,80,0.6), rgba(44,62,80,0.6)),
                   url('https://picsum.photos/1200/500?random=2') center/cover no-repeat;
@@ -58,25 +44,7 @@
       text-align: center;
       padding: 120px 20px;
     }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease-in-out;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      animation: fadeInUp 1.2s ease-in-out;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ====== SECCIÓN PRODUCTOS ====== */
+    .hero h1 { font-size: 3rem; }
     .section-title {
       text-align: center;
       margin: 50px 0 20px;
@@ -97,25 +65,13 @@
       padding: 15px;
       box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0px 10px 18px rgba(0,0,0,0.15);
-    }
+    .card:hover { transform: translateY(-8px); }
     .card img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 10px;
-    }
-    .card h3 {
-      color: #2c3e50;
-      font-size: 1.3rem;
-    }
-    .card p {
-      font-size: 1.1rem;
-      color: #1abc9c;
-      font-weight: bold;
     }
     .btn {
       display: inline-block;
@@ -125,37 +81,72 @@
       color: white;
       border-radius: 6px;
       font-weight: 500;
-      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
     }
-    .btn:hover {
-      background: #16a085;
-      transform: scale(1.05);
+    .btn:hover { background: #16a085; }
+    /* ===== CARRITO ===== */
+    #carrito {
+      background: #ecf0f1;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    /* ====== CONTACTO ====== */
+    #carrito h2 { margin-bottom: 15px; }
+    #lista-carrito { list-style: none; padding: 0; }
+    #lista-carrito li {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+    /* ===== CONTACTO ===== */
     .contacto {
       padding: 50px 20px;
-      background: #ecf0f1;
+      background: #fff;
       text-align: center;
     }
-    .contacto h2 {
-      margin-bottom: 15px;
-      font-size: 2rem;
-      color: #2c3e50;
+    .contacto form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-    .contacto p {
-      margin: 8px 0;
-      font-size: 1.1rem;
+    .contacto input, .contacto textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
     }
-
-    /* ====== FOOTER ====== */
+    .contacto button {
+      padding: 12px;
+      background: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .contacto button:hover { background: #16a085; }
     footer {
       background: #2c3e50;
       color: white;
       text-align: center;
       padding: 18px;
       margin-top: 20px;
-      font-size: 0.9rem;
+    }
+    /* Botón flotante WhatsApp */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
   </style>
 </head>
@@ -168,6 +159,7 @@
       <div>
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
+        <a href="#carrito">Carrito</a>
         <a href="#contacto">Contacto</a>
       </div>
     </nav>
@@ -186,33 +178,70 @@
       <img src="https://via.placeholder.com/300x200" alt="Producto 1">
       <h3>Producto 1</h3>
       <p>$150 MXN</p>
-      <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      <button class="btn" onclick="agregarAlCarrito('Producto 1', 150)">Agregar al carrito</button>
     </div>
     <div class="card">
       <img src="https://via.placeholder.com/300x200" alt="Producto 2">
       <h3>Producto 2</h3>
       <p>$200 MXN</p>
-      <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      <button class="btn" onclick="agregarAlCarrito('Producto 2', 200)">Agregar al carrito</button>
     </div>
     <div class="card">
       <img src="https://via.placeholder.com/300x200" alt="Producto 3">
       <h3>Producto 3</h3>
       <p>$300 MXN</p>
-      <a class="btn" href="https://www.paypal.com/bizsignup/" target="_blank">Comprar</a>
+      <button class="btn" onclick="agregarAlCarrito('Producto 3', 300)">Agregar al carrito</button>
     </div>
+  </section>
+
+  <!-- CARRITO -->
+  <section id="carrito">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="lista-carrito"></ul>
+    <h3>Total: $<span id="total">0</span> MXN</h3>
   </section>
 
   <!-- CONTACTO -->
   <section id="contacto" class="contacto">
     <h2>Contacto</h2>
-    <p>Email: contacto@mitienda.com</p>
-    <p>Tel: +52 123 456 7890</p>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <p>© 2025 Mi Tienda - Todos los derechos reservados</p>
   </footer>
+
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/521234567890" target="_blank" class="whatsapp">💬</a>
+
+  <!-- SCRIPT DEL CARRITO -->
+  <script>
+    let carrito = [];
+    let total = 0;
+
+    function agregarAlCarrito(producto, precio) {
+      carrito.push({ producto, precio });
+      total += precio;
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById("lista-carrito");
+      lista.innerHTML = "";
+      carrito.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item.producto + " - $" + item.precio;
+        lista.appendChild(li);
+      });
+      document.getElementById("total").textContent = total;
+    }
+  </script>
 
 </body>
 </html>
